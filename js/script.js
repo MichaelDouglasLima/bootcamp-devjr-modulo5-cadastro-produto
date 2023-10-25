@@ -1,5 +1,5 @@
 function convertToNumber(priceFormat) {
-    return priceFormat.replace(/\./g,'').replace(',','.'); //Expressão Regular
+    return priceFormat.replace(/\./g, '').replace(',', '.'); //Expressão Regular
 }
 
 var products = [
@@ -55,10 +55,10 @@ function save() {
         name: document.getElementById("inputName").value,
         description: document.getElementById("inputDescription").value,
         price: convertToNumber(document.getElementById("inputPrice").value),
-        category: document.getElementById("selectedCategory").value,
-        promotion: document.getElementById("checkboxPromotion").checked,
-        new: document.getElementById("checkboxNewProduct").cheked
-    }
+        category: document.getElementById("selectCategory").value,
+        promotion: document.getElementById("checkBoxPromotion").checked,
+        new: document.getElementById("checkBoxNewProduct").checked
+    };
 
     addNewRow(prod);
     products.push(prod);
