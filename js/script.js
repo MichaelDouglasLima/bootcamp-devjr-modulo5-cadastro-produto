@@ -39,13 +39,30 @@ loadProducts();
 
 //Load all products
 function loadProducts() {
-    for (let prod of products){
+    for (let prod of products) {
         addNewRow(prod);
     }
 }
 
+//Save a product
+function save() {
+    var prod = {
+        id: products.length + 1,
+        name: document.getElementById("inputName").value,
+        description: document.getElementById("inputDescription").value,
+        price: document.getElementById("inputPrice").value,
+        category: document.getElementById("selectedCategory").value,
+        promotion: document.getElementById("checkboxPromotion").checked,
+        new: document.getElementById("checkboxNewProduct").cheked
+    }
+
+    addNewRow(prod);
+    products.push(prod);
+    document.getElementById("formProduct").reset();
+}
+
 //Add new Row
-function addNewRow(prod){
+function addNewRow(prod) {
     var table = document.getElementById("productsTable");
 
     var newRow = table.insertRow();
