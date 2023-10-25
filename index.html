@@ -104,37 +104,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr>
-                                <th scope="row">1</th>
-                                <td>Computador MT1-TX</td>
-                                <td>Intel 17, 16GB, SSD 256, HD 1T</td>
-                                <td>4.900,00</td>
-                                <td>Nacional</td>
-                                <td>
-                                    <span class="badge bg-success">P</span>
-                                    <span class="badge bg-primary">L</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Computador MT2-TX</td>
-                                <td>Intel 17, 32GB, SSD 512, HD 1T</td>
-                                <td>5.900,00</td>
-                                <td>Importado</td>
-                                <td>
-                                    <span class="badge bg-primary">L</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Computador MT1</td>
-                                <td>Intel 15, 8GB, HD 1T</td>
-                                <td>2.900,00</td>
-                                <td>Produção Própria</td>
-                                <td>
-
-                                </td>
-                            </tr> -->
+                            
                         </tbody>
                     </table>
                 </div>
@@ -150,7 +120,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+
+    <script>
+        $("#inputPrice").mask('000.000.000.000.000,00', {reverse: true});
+    </script>
 </body>
 
 </html>

@@ -50,38 +50,39 @@ function addNewRow(prod){
 
     var newRow = table.insertRow();
 
-    //Insert id product
+    //Insert product id
     var idNode = document.createTextNode(prod.id);
     newRow.insertCell().appendChild(idNode);
 
-    //Insert name product
-    var idNode = document.createTextNode(prod.name);
-    newRow.insertCell().appendChild(idNode);
+    //Insert product name
+    var nameNode = document.createTextNode(prod.name);
+    newRow.insertCell().appendChild(nameNode);
 
-    //Insert description product
-    var idNode = document.createTextNode(prod.description);
-    newRow.insertCell().appendChild(idNode);
+    //Insert product description
+    var descriptionNode = document.createTextNode(prod.description);
+    newRow.insertCell().appendChild(descriptionNode);
 
-    //Insert price product
-    var idNode = document.createTextNode(prod.price);
-    newRow.insertCell().appendChild(idNode);
+    //Insert product price
+    var formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
-    //Insert category product
-    var idNode = document.createTextNode(categories[prod.category - 1].name);
-    newRow.insertCell().appendChild(idNode);
+    var priceNode = document.createTextNode(formatter.format(prod.price));
+    newRow.insertCell().appendChild(priceNode);
 
-    //Insert options product - Promotion
-    var idNode = document.createTextNode(prod.promotion);
+    //Insert product category
+    var categoryNode = document.createTextNode(categories[prod.category - 1].name);
+    newRow.insertCell().appendChild(categoryNode);
+
+    //Insert product options
+    var options = '';
 
     if (prod.promotion) {
-        newRow.insertCell().innerHTML = `<span class="badge bg-success">P</span>`;
+        options = '<span class="badge bg-success me-1">P</span>';
     }
-
-    //Insert options product - New
-    var idNode = document.createTextNode(prod.new);
 
     if (prod.new) {
-        newRow.insertCell().innerHTML = `<span class="badge bg-primary">L</span>`;
+        options += '<span class="badge bg-primary">L</span>';
     }
-    
+
+    newRow.insertCell().innerHTML = options;
+
 }
