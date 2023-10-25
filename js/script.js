@@ -1,3 +1,7 @@
+function convertToNumber(priceFormat) {
+    return priceFormat.replace(/\./g,'').replace(',','.'); //Expressão Regular
+}
+
 var products = [
     {
         id: 1,
@@ -50,7 +54,7 @@ function save() {
         id: products.length + 1,
         name: document.getElementById("inputName").value,
         description: document.getElementById("inputDescription").value,
-        price: document.getElementById("inputPrice").value,
+        price: convertToNumber(document.getElementById("inputPrice").value),
         category: document.getElementById("selectedCategory").value,
         promotion: document.getElementById("checkboxPromotion").checked,
         new: document.getElementById("checkboxNewProduct").cheked
@@ -77,10 +81,12 @@ function addNewRow(prod) {
 
     //Insert product description
     var descriptionNode = document.createTextNode(prod.description);
-    newRow.insertCell().appendChild(descriptionNode);
+    var cell = newRow.insertCell();
+    cell.className = "d-none d-md-table-cell";
+    cell.appendChild(descriptionNode);
 
     //Insert product price
-    var formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+    var formatter = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 
     var priceNode = document.createTextNode(formatter.format(prod.price));
     newRow.insertCell().appendChild(priceNode);
@@ -90,16 +96,18 @@ function addNewRow(prod) {
     newRow.insertCell().appendChild(categoryNode);
 
     //Insert product options
-    var options = '';
+    var options = "";
 
     if (prod.promotion) {
-        options = '<span class="badge bg-success me-1">P</span>';
+        options = "<span class='badge bg-success me-1'>P</span>";
     }
 
     if (prod.new) {
-        options += '<span class="badge bg-primary">L</span>';
+        options += "<span class='badge bg-primary'>L</span>";
     }
 
-    newRow.insertCell().innerHTML = options;
+    cell = newRow.insertCell();
+    cell.className = "d-none d-md-table-cell";
+    cell.innerHTML = options;
 
 }
