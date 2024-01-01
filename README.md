@@ -1,4 +1,4 @@
-# BootCamp Dev-Jr Múdulo 5 Cadastro de Produtos
+# BootCamp Dev-Jr Modúlo 5 Cadastro de Produtos
 
 HTML, BootStrap e JavaScript
 
